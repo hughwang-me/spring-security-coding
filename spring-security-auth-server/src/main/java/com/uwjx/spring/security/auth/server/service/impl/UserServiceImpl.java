@@ -17,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -52,11 +53,14 @@ public class UserServiceImpl implements UserService {
             }
             log.warn("角色信息:{}" , authorities.size());
 
-//            authorities.a
+//            Collection<? extends GrantedAuthority> authorities_testing = new ArrayList<>();
+            List<GrantedAuthority> authorities_testing = new ArrayList<>();
+            authorities_testing.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+            authorities_testing.add(new SimpleGrantedAuthority("delete"));
 
             UserBean userBean = new UserBean(systemUser.getUserName() ,
                     passwordEncoder.encode(systemUser.getUserPassword())  ,
-                    AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_ADMIN"));
+                    authorities_testing);
             log.warn("userBean信息:{}" , userBean);
             return userBean;
         }
