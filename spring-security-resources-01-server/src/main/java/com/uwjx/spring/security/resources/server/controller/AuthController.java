@@ -19,7 +19,7 @@ public class AuthController {
         log.warn("code : {}" , code);
 
         HttpRequest httpRequest = new HttpRequest();
-        String url = "http://localhost:8080/oauth/token?grant_type=authorization_code&code=" + code + "&scope=all&redirect_uri=http://localhost:8081/auth/callback";
+        String url = "http://localhost:8080/authServer/oauth/token?grant_type=authorization_code&code=" + code + "&scope=all&redirect_uri=http://localhost:8081/auth/callback";
         try {
             String resp = httpRequest.post(url , "client-01" , "123123");
             log.warn("resp : {}" , resp);

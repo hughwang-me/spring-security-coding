@@ -38,7 +38,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/order/**").permitAll();
+                .antMatchers("/order/**").permitAll()
+                .and()
+                .httpBasic();// 打开basic认证 否则/oauth/authorize 会报 Access Denied 异常
     }
 
     @Bean

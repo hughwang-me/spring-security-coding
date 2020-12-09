@@ -18,8 +18,10 @@
 
     <modules>
         <module>spring-security-auth-server</module>
-<!--        <module>spring-security-resources-01-server</module>-->
-<!--        <module>spring-security-resources-02-server</module>-->
+        <module>spring-security-resources-01-server</module>
+        <module>spring-security-resources-02-server</module>
+        <module>spring-security-resources-client-01-server</module>
+        <module>spring-security-resources-client-02-server</module>
     </modules>
 
     <dependencyManagement>
